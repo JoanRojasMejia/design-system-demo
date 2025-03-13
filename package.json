@@ -1,0 +1,85 @@
+{
+  "name": "@flash-global66/b2b-ui-framework",
+  "version": "0.0.1",
+  "main": "index.js",
+  "type": "module",
+  "repository": {
+    "url": "https://github.com/Flash-Global66/b2b-ui-framework.git"
+  },
+  "private": true,
+  "workspaces": [
+    "components/*",
+    "common/*"
+  ],
+  "author": "Global66",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/pro-duotone-svg-icons": "^6.2.1",
+    "@fortawesome/pro-light-svg-icons": "^6.2.1",
+    "@fortawesome/pro-regular-svg-icons": "^6.2.1",
+    "@fortawesome/pro-solid-svg-icons": "^6.2.1",
+    "@fortawesome/vue-fontawesome": "^3.0.2",
+    "@storybook/addon-actions": "^8.3.6",
+    "@storybook/addon-controls": "^8.3.6",
+    "@storybook/addon-essentials": "8.4.7",
+    "@storybook/addon-interactions": "8.4.7",
+    "@storybook/addon-jest": "^8.3.6",
+    "@storybook/addon-links": "^8.3.6",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/test": "8.4.7",
+    "@storybook/vue3": "^8.3.6",
+    "@storybook/vue3-vite": "8.4.7",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "babel-loader": "^8.2.5",
+    "jest-mock": "^28.1.0",
+    "lerna": "^8.1.9",
+    "rollup-plugin-copy": "^3.5.0",
+    "sass": "^1.79.4",
+    "storybook": "^8.4.7",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.6.2",
+    "vite": "5.2.11",
+    "vite-dts": "^1.0.4",
+    "vue": "^3.2.35",
+    "vue-loader": "^16.8.3",
+    "vue-tsc": "^2.1.6"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006 --ci",
+    "build-storybook": "storybook build",
+    "doctor": "storybook doctor",
+    "upgrade-storybook": "storybook storybook@latest upgrade",
+    "build": "npx lerna run build --stream",
+    "dev": "npx lerna run dev --parallel",
+    "clean": "npx lerna clean",
+    "diff": "npx lerna diff",
+    "compare-versions": "bash ./scripts-terminal/generate-versions-local.sh && bash ./scripts-terminal/compare-versions.sh"
+  },
+  "resolutions": {
+    "jest-mock": "^28.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@flash-global"
+  },
+  "dependencies": {
+    "@element-plus/utils": "^0.0.5",
+    "@flash-global66/b2b-ui-button": "^1.0.21",
+    "@flash-global66/b2b-ui-config-element": "^0.0.14",
+    "@flash-global66/b2b-ui-dialog": "^0.0.6",
+    "@flash-global66/b2b-ui-icon-font": "^1.0.15",
+    "@fortawesome/fontawesome-common-types": "^6.2.1",
+    "@flash-global66/b2b-ui-focus-trap": "1.1.2",
+    "@storybook/manager-api": "^8.3.6",
+    "@vueuse/core": "^12.4.0",
+    "async-validator": "^4.2.5",
+    "autoprefixer": "^10.4.19",
+    "cleave-zen": "^0.0.17",
+    "element-plus": "^2.8.4",
+    "lodash-unified": "^1.0.3",
+    "vue-router": "^4.2.2"
+  },
+  "packageManager": "yarn@4.7.0+sha512.5a0afa1d4c1d844b3447ee3319633797bcd6385d9a44be07993ae52ff4facabccafb4af5dcd1c2f9a94ac113e5e9ff56f6130431905884414229e284e37bb7c9"
+}

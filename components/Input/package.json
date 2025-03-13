@@ -1,0 +1,26 @@
+{
+  "name": "@flash-global66/b2b-ui-input",
+  "author": "Global66",
+  "version": "0.0.58",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts",
+    "./input.styles.scss": "./src/input.styles.scss"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "build": "vite build && vue-tsc --emitDeclarationOnly -p tsconfig.json --skipLibCheck"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "url": "https://github.com/Flash-Global66/b2b-ui-framework.git"
+  },
+  "gitHead": "2e74f613ed7eae27d905ba63460f766c6e0a103b",
+  "dependencies": {
+    "lodash-unified": "^1.0.3"
+  }
+}

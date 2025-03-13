@@ -1,0 +1,52 @@
+@use "../../components/ConfigProvider/config.styles.scss";
+
+@use "../../components/Popper/popper.styles.scss" as *;
+
+@use "../../components/Scrollbar/scrollbar.styles.scss" as *;
+
+@use "../../components/tag/tag.styles.scss" as *;
+
+@use "../../components/RadioGroup/radio-group.styles.scss" as *;
+@use "../../components/Radio/radio.styles.scss" as *;
+
+@use "../../components/Badge/badge.styles.scss" as *;
+
+@use "../../components/Checkbox/checkbox.styles.scss" as *;
+
+@use "../../components/Input/input.styles.scss" as *;
+
+@use "../../components/Select/select.styles.scss" as *;
+
+@use "../../components/Form/form.styles.scss" as *;
+@use "../../components/FormItem/form-item.styles.scss" as *;
+
+@use "../../components/Button/src/button.styles.scss" as *;
+
+@use "../../components/Dialog/dialog.styles.scss" as *;
+
+@use "../../components/Pagination/pagination.styles.scss" as *;
+
+@use "../../components/Popover/popover.styles.scss" as *;
+@use "../../components/Dropdown/dropdown.styles.scss" as *;
+@use "../../components/Dropdown/dropdown-menu.styles.scss" as *;
+@use "../../components/Dropdown/dropdown-item.styles.scss" as *;
+
+@use "../../components/Skeleton/skeleton.styles.scss" as *;
+@use "../../components/Skeleton/skeleton-item.styles.scss" as *;
+@use "../../components/InputCode/input-code.styles.scss" as *;
+@use "../../components/Drawer/drawer.styles.scss" as *;
+@use "../../components/Dialog/dialog.styles.scss" as *;
+@use "../../components/Overlay/overlay.styles.scss" as *;
+
+@use "../../components/Table/table.styles.scss" as *;
+
+@use "../../components/Menu/menu.styles.scss" as *;
+
+@use "../../components/Switch/switch.styles.scss" as *;
+@use "../../components/Segmented/segmented.styles.scss" as *;
+
+@use "../../components/Inline/inline.styles.scss" as *;
+
+* {
+  @apply font-montserrat;
+}

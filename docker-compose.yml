@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: design-system
+    ports:
+      - "6006:6006" # Puerto de Storybook
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped

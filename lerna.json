@@ -1,0 +1,19 @@
+{
+  "packages": [
+    "components/*",
+    "config/*",
+    "common/*"
+  ],
+  "version": "independent",
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "*.md",
+        "*.test.js",
+        "*.spec.js"
+      ],
+      "message": "chore(release): publish"
+    }
+  }
+}

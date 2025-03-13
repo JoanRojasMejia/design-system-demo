@@ -1,0 +1,13 @@
+*.log
+.DS_Store
+node_modules
+dist
+**/dist
+.codegpt
+.yarn/
+
+# Build output
+storybook-static/
+
+.yarnrc.yml
+yarn.lock

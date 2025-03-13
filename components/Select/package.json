@@ -1,0 +1,17 @@
+{
+  "name": "@flash-global66/b2b-ui-select",
+  "author": "Global66",
+  "version": " 0.1.2",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.ts",
+    "./select.styles.scss": "./select.styles.scss"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "url": "https://github.com/Flash-Global66/b2b-ui-framework.git"
+  },
+  "gitHead": "3d2df5880e22d2bc7293ff916ef163410f9682d4"
+}
