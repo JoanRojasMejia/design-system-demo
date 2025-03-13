@@ -2,7 +2,7 @@
   "name": "@JoanRojasMejia/b2b-ui-teleport",
   "author": "Joan Rojas Mejia",
   "description": "A teleport component for B2B",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "exports": {
     ".": "./index.ts",

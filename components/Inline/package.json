@@ -1,7 +1,7 @@
 {
   "name": "@JoanRojasMejia/b2b-ui-inline",
   "author": "Joan Rojas Mejia",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "description": "An inline component for B2B",
   "exports": {

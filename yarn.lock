@@ -5,6 +5,107 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@JoanRojasMejia/b2b-ui-button@workspace:components/Button":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-button@workspace:components/Button"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-checkbox@workspace:components/Checkbox":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-checkbox@workspace:components/Checkbox"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-config-element@workspace:components/ConfigProvider":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-config-element@workspace:components/ConfigProvider"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-focus-trap@workspace:components/focus-trap":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-focus-trap@workspace:components/focus-trap"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-form-item@workspace:components/FormItem":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-form-item@workspace:components/FormItem"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-form@workspace:components/Form":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-form@workspace:components/Form"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-icon-font@workspace:components/IconFont":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-icon-font@workspace:components/IconFont"
+  dependencies:
+    "@fortawesome/fontawesome-svg-core": "npm:^6.7.2"
+    "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
+    "@fortawesome/free-solid-svg-icons": "npm:^6.7.2"
+    "@fortawesome/pro-duotone-svg-icons": "npm:^6.7.2"
+    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
+    "@fortawesome/pro-regular-svg-icons": "npm:^6.7.2"
+    "@fortawesome/pro-solid-svg-icons": "npm:^6.7.2"
+    "@fortawesome/vue-fontawesome": "npm:^3.0.8"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-inline@workspace:components/Inline":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-inline@workspace:components/Inline"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-input@workspace:components/Input":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-input@workspace:components/Input"
+  dependencies:
+    lodash-unified: "npm:^1.0.3"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-overlay@workspace:components/Overlay":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-overlay@workspace:components/Overlay"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-radio@workspace:components/Radio":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-radio@workspace:components/Radio"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-segmented@workspace:components/Segmented":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-segmented@workspace:components/Segmented"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-select@workspace:components/Select":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-select@workspace:components/Select"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-tag@workspace:components/tag":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-tag@workspace:components/tag"
+  languageName: unknown
+  linkType: soft
+
+"@JoanRojasMejia/b2b-ui-teleport@workspace:components/teleport":
+  version: 0.0.0-use.local
+  resolution: "@JoanRojasMejia/b2b-ui-teleport@workspace:components/teleport"
+  languageName: unknown
+  linkType: soft
+
 "@adobe/css-tools@npm:^4.4.0":
   version: 4.4.2
   resolution: "@adobe/css-tools@npm:4.4.2"
@@ -875,107 +976,6 @@ __metadata:
   checksum: 10c0/3cffae7d1133aa7952a6b5c4806f89ed78cb0dfe3ec4e8c5a6e704d7bab3cff86c714abb5f0f637540da22776900a33b3bad79c5ed5fc5b5535fb24e3006e3cb
   languageName: node
   linkType: hard
-
-"@joan-rojas-mejia/b2b-ui-button@workspace:components/Button":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-button@workspace:components/Button"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-checkbox@workspace:components/Checkbox":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-checkbox@workspace:components/Checkbox"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-config-element@workspace:components/ConfigProvider":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-config-element@workspace:components/ConfigProvider"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-focus-trap@workspace:components/focus-trap":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-focus-trap@workspace:components/focus-trap"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-form-item@workspace:components/FormItem":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-form-item@workspace:components/FormItem"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-form@workspace:components/Form":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-form@workspace:components/Form"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-icon-font@workspace:components/IconFont":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-icon-font@workspace:components/IconFont"
-  dependencies:
-    "@fortawesome/fontawesome-svg-core": "npm:^6.7.2"
-    "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
-    "@fortawesome/free-solid-svg-icons": "npm:^6.7.2"
-    "@fortawesome/pro-duotone-svg-icons": "npm:^6.7.2"
-    "@fortawesome/pro-light-svg-icons": "npm:^6.7.2"
-    "@fortawesome/pro-regular-svg-icons": "npm:^6.7.2"
-    "@fortawesome/pro-solid-svg-icons": "npm:^6.7.2"
-    "@fortawesome/vue-fontawesome": "npm:^3.0.8"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-inline@workspace:components/Inline":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-inline@workspace:components/Inline"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-input@workspace:components/Input":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-input@workspace:components/Input"
-  dependencies:
-    lodash-unified: "npm:^1.0.3"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-overlay@workspace:components/Overlay":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-overlay@workspace:components/Overlay"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-radio@workspace:components/Radio":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-radio@workspace:components/Radio"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-segmented@workspace:components/Segmented":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-segmented@workspace:components/Segmented"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-select@workspace:components/Select":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-select@workspace:components/Select"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-tag@workspace:components/tag":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-tag@workspace:components/tag"
-  languageName: unknown
-  linkType: soft
-
-"@joan-rojas-mejia/b2b-ui-teleport@workspace:components/teleport":
-  version: 0.0.0-use.local
-  resolution: "@joan-rojas-mejia/b2b-ui-teleport@workspace:components/teleport"
-  languageName: unknown
-  linkType: soft
 
 "@joanrojas/b2b-ui-dialog@workspace:components/Dialog":
   version: 0.0.0-use.local
