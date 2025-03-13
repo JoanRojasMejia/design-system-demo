@@ -1,7 +1,7 @@
 {
   "name": "@joan-rojas-mejia/b2b-ui-checkbox",
   "author": "Joan Rojas Mejia",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "exports": {
     ".": "./index.ts",

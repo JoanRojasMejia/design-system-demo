@@ -10,5 +10,4 @@ dist
 storybook-static/
 
 .yarnrc.yml
-yarn.lock
 .npmrc
