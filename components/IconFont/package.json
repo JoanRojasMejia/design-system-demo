@@ -1,7 +1,7 @@
 {
   "name": "@joan-rojas-mejia/b2b-ui-icon-font",
   "author": "Joan Rojas Mejia",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Un componente de iconos para B2B",
   "license": "MIT",
   "exports": {

@@ -1,7 +1,7 @@
 {
   "name": "@joan-rojas-mejia/b2b-ui-focus-trap",
   "author": "Joan Rojas Mejia",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "A focus trap component for accessibility",
   "exports": {

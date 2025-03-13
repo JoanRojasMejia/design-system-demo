@@ -2,7 +2,7 @@
   "name": "@joan-rojas-mejia/b2b-ui-segmented",
   "description": "A segmented component for B2B",
   "author": "Joan Rojas Mejia",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "exports": {
     ".": "./index.ts",
