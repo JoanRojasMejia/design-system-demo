@@ -1,7 +1,7 @@
 {
   "name": "@joan-rojas-mejia/b2b-ui-config-element",
   "author": "Global66",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "exports": {
     ".": "./index.ts",

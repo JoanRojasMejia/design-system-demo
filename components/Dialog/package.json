@@ -1,7 +1,7 @@
 {
   "name": "@joanrojas/b2b-ui-dialog",
   "author": "Joan Rojas Mejia",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "description": "Dialog component for the B2B UI Framework",
   "exports": {
