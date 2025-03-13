@@ -67,9 +67,9 @@
 
 <script setup lang="ts">
 import { computed, provide, ref } from "vue";
-import { GFocusTrap } from "@flash-global66/b2b-ui-focus-trap";
-import { GTeleport } from "@flash-global66/b2b-ui-teleport";
-import { GOverlay } from "@flash-global66/b2b-ui-overlay";
+import { ElFocusTrap as GFocusTrap } from 'element-plus/es/components/focus-trap/index'
+import { ElTeleport as GTeleport } from 'element-plus/es/components/teleport/index'
+import { ElOverlay as GOverlay } from 'element-plus/es/components/overlay/index'
 import { useNamespace, useSameTarget } from "element-plus";
 import { dialogInjectionKey } from "./constants";
 import { dialogEmits, dialogProps } from "./dialog";

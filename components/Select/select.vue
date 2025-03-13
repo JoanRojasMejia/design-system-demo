@@ -67,7 +67,7 @@
                   <g-tag
                     :closable="!selectDisabled && !getDisabled(item)"
                     size="default"
-                    :type="tagType"
+                    :type="tagType as any"
                     :effect="tagEffect"
                     disable-transitions
                     :style="tagStyle"
@@ -95,7 +95,7 @@
                       <g-tag
                         :closable="false"
                         size="default"
-                        :type="tagType"
+                        :type="tagType as any"
                         :effect="tagEffect"
                         :style="collapseTagStyle"
                         disable-transitions
@@ -117,7 +117,7 @@
                           class="in-tooltip"
                           :closable="!selectDisabled && !getDisabled(selected)"
                           size="default"
-                          :type="tagType"
+                          :type="tagType as any"
                           :effect="tagEffect"
                           disable-transitions
                           @close="deleteTag($event, selected)"
@@ -287,7 +287,7 @@ import { computed, defineComponent, provide, reactive, toRefs, useSlots } from '
 import { isArray } from 'element-plus/es/utils/index.mjs'
 import { ClickOutside } from 'element-plus'
 import ElTooltip from 'element-plus/es/components/tooltip/index'
-import { GTag } from '@flash-global66/b2b-ui-tag'
+import { ElTag as GTag } from 'element-plus'
 import { GIconFont } from '@flash-global66/b2b-ui-icon-font'
 import { useCalcInputWidth } from 'element-plus'
 import ElSelectMenu from './select-dropdown'

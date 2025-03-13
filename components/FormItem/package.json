@@ -1,7 +1,7 @@
 {
   "name": "@joan-rojas-mejia/b2b-ui-form-item",
   "author": "Joan Rojas Mejia",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "description": "A form item component for B2B",
   "exports": {

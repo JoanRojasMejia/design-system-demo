@@ -2,7 +2,7 @@
   "name": "@joan-rojas-mejia/b2b-ui-tag",
   "description": "A tag component for B2B",
   "author": "Joan Rojas Mejia",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "exports": {
     "./tag.styles.scss": "./tag.styles.scss",
