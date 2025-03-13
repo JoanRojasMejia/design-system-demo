@@ -1,8 +1,9 @@
 {
-  "name": "@flash-global66/b2b-ui-inline",
-  "author": "Global66",
-  "version": "1.0.23",
+  "name": "@joan-rojas-mejia/b2b-ui-inline",
+  "author": "Joan Rojas Mejia",
+  "version": "1.0.0",
   "license": "MIT",
+  "description": "An inline component for B2B",
   "exports": {
     ".": "./index.ts",
     "./inline.styles.scss": "./inline.styles.scss",
@@ -12,7 +13,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "repository": {
-    "url": "https://github.com/Flash-Global66/b2b-ui-framework.git"
-  },
-  "gitHead": "dc031789714efcb4e0fadbfe785964dc376930d7"
+    "type": "git",
+    "url": "https://github.com/JoanRojasMejia/design-system-demo.git"
+  }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "@flash-global66/b2b-ui-checkbox",
-  "author": "Global66",
-  "version": " 1.0.13",
+  "name": "@joan-rojas-mejia/b2b-ui-checkbox",
+  "author": "Joan Rojas Mejia",
+  "version": " 1.0.0",
   "license": "MIT",
   "exports": {
     ".": "./index.ts",
@@ -11,6 +11,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "repository": {
-    "url": "https://github.com/Flash-Global66/b2b-ui-framework.git"
+    "type": "git",
+    "url": "https://github.com/JoanRojasMejia/design-system-demo.git"
   }
 }

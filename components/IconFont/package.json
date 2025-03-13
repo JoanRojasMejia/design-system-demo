@@ -1,7 +1,8 @@
 {
-  "name": "@flash-global66/b2b-ui-icon-font",
-  "author": "Global66",
-  "version": "1.1.3",
+  "name": "@joan-rojas-mejia/b2b-ui-icon-font",
+  "author": "Joan Rojas Mejia",
+  "version": "1.0.0",
+  "description": "Un componente de iconos para B2B",
   "license": "MIT",
   "exports": {
     ".": "./index.ts",
@@ -11,7 +12,8 @@
     "registry": "https://npm.pkg.github.com"
   },
   "repository": {
-    "url": "https://github.com/Flash-Global66/b2b-ui-framework.git"
+    "type": "git",
+    "url": "https://github.com/JoanRojasMejia/design-system-demo.git"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -22,6 +24,5 @@
     "@fortawesome/pro-regular-svg-icons": "^6.7.2",
     "@fortawesome/pro-solid-svg-icons": "^6.7.2",
     "@fortawesome/vue-fontawesome": "^3.0.8"
-  },
-  "gitHead": "dc031789714efcb4e0fadbfe785964dc376930d7"
+  }
 }
