@@ -9,6 +9,7 @@
 @use 'element-plus/theme-chalk/src/mixins/utils' as *;
 @use 'element-plus/theme-chalk/src/mixins/var' as *;
 @use 'element-plus/theme-chalk/src/common/var' as *;
+@use "element-plus/theme-chalk/src/popper.scss" as *;
 
 .selectContainer {
   @apply flex flex-col gap-xxs;
