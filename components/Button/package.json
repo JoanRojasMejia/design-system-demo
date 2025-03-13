@@ -1,7 +1,7 @@
 {
   "name": "@joan-rojas-mejia/b2b-ui-button",
   "author": "Joan Rojas Mejia",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "description": "Un botón UI para B2B",
   "exports": {
@@ -14,8 +14,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/JoanRojasMejia/design-system-demo.git"
-  },
-  "peerDependencies": {
-    "@joan-rojas-mejia/b2b-ui-icon-font": "^1.0.0"
   }
 }
