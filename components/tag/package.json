@@ -1,5 +1,5 @@
 {
-  "name": "@joan-rojas-mejia/b2b-ui-tag",
+  "name": "@JoanRojasMejia/b2b-ui-tag",
   "description": "A tag component for B2B",
   "author": "Joan Rojas Mejia",
   "version": "1.0.5",
@@ -15,5 +15,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/JoanRojasMejia/design-system-demo.git"
-  }
+  },
+  "gitHead": "2c99ce506322c84b166ba50cad16465c244b722b"
 }

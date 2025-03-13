@@ -1,5 +1,5 @@
 {
-  "name": "@joan-rojas-mejia/b2b-ui-icon-font",
+  "name": "@JoanRojasMejia/b2b-ui-icon-font",
   "author": "Joan Rojas Mejia",
   "version": "1.0.5",
   "description": "Un componente de iconos para B2B",
@@ -24,5 +24,6 @@
     "@fortawesome/pro-regular-svg-icons": "^6.7.2",
     "@fortawesome/pro-solid-svg-icons": "^6.7.2",
     "@fortawesome/vue-fontawesome": "^3.0.8"
-  }
+  },
+  "gitHead": "2c99ce506322c84b166ba50cad16465c244b722b"
 }
