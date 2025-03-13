@@ -4,7 +4,8 @@
   "main": "index.js",
   "type": "module",
   "repository": {
-    "url": "https://github.com/Flash-Global66/b2b-ui-framework.git"
+    "type": "git",
+    "url": "https://github.com/JoanRojasMejia/design-system-demo.git"
   },
   "private": true,
   "workspaces": [
@@ -62,7 +63,7 @@
     "jest-mock": "^28.1.0"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@flash-global"
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "@element-plus/utils": "^0.0.5",

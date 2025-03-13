@@ -2,7 +2,7 @@
   "name": "@joan-rojas-mejia/b2b-ui-select",
   "author": "Joan Rojas Mejia",
   "description": "A select component for B2B",
-  "version": " 1.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "exports": {
     ".": "./index.ts",
