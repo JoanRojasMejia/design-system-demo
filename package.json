@@ -9,8 +9,7 @@
   },
   "private": true,
   "workspaces": [
-    "components/*",
-    "common/*"
+    "packages/b2b-ui-framework"
   ],
   "author": "Global66",
   "license": "MIT",
@@ -58,9 +57,6 @@
     "clean": "npx lerna clean",
     "diff": "npx lerna diff",
     "compare-versions": "bash ./scripts-terminal/generate-versions-local.sh && bash ./scripts-terminal/compare-versions.sh"
-  },
-  "resolutions": {
-    "jest-mock": "^28.1.0"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

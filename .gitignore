@@ -12,3 +12,8 @@ storybook-static/
 .yarnrc.yml
 .npmrc
 lerna-debug.log
+
+.env
+.env.local
+.env.dev
+.env.prod

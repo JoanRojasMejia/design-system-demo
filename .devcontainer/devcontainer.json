@@ -1,8 +1,9 @@
 {
   "name": "Design system",
-  "dockerComposeFile": "../docker-compose.yml",
-  "service": "app", // Nombre del servicio en docker-compose.yml
+  "dockerComposeFile": "../docker-compose.dev.yml",
+  "service": "design-system", // Nombre del servicio en docker-compose.yml
   "workspaceFolder": "/app", // Carpeta del proyecto dentro del contenedor
+  "forwardPorts": [6006],
   "customizations": {
     "vscode": {
       "extensions": [
