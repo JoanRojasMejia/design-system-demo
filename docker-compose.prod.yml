@@ -1,0 +1,16 @@
+services:
+  storybook-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      args:
+        NPM_GITHUB_TOKEN: ${NPM_GITHUB_TOKEN}
+        FONTAWESOME_TOKEN: ${FONTAWESOME_TOKEN}
+    ports:
+      - "8080:80"
+    networks:
+      - storybook-net
+
+networks:
+  storybook-net:
+    driver: bridge
