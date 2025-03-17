@@ -54,7 +54,7 @@ jobs:
           echo "✅ Variables de entorno configuradas correctamente"
 
       - name: Install dependencies
-        run: corepack use yarn@latest
+        run: yarn install --mode=update-lockfile
 
       - name: Verify Yarn configuration
         run: |
