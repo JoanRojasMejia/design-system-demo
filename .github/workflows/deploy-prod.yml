@@ -183,7 +183,7 @@ jobs:
     steps:
       - name: Desencadenar despliegue en Render
         env:
-          DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+          DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_PROD }}
         run: |
           # Llamada simple al webhook de Render
           curl -X POST "$DEPLOY_HOOK"
