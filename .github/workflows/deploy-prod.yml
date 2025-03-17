@@ -31,14 +31,11 @@ jobs:
         with:
           node-version: 20.x
           cache: 'yarn'
-          # Habilitar Corepack para usar la versión de Yarn del proyecto
-          corepack: true
-      
-      # Añade este nuevo step después del setup de Node.js
-      - name: Enable Corepack and prepare Yarn
+
+      - name: Enable Corepack and Install Yarn 4.7.0  # ← Nuevo paso
         run: |
           corepack enable
-          corepack prepare yarn@latest --activate
+          corepack prepare yarn@4.7.0 --activate
 
       - name: Verify environment variables
         run: |
