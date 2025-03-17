@@ -1,8 +1,13 @@
 name: Publish Packages
 
+# on:
+#   pull_request:
+#     branches: [main]
+
 on:
-  pull_request:
-    branches: [main]
+  push:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,7 +22,7 @@ jobs:
       packages: write
     env:
       NPM_GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_TOKEN }}
-      FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+      FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
 
     steps:
       - name: Checkout repository
@@ -42,8 +47,8 @@ jobs:
             echo "::error::NPM_GITHUB_TOKEN no está configurado"
             exit 1
           fi
-          if [ -z "$FONT_AWESOME_TOKEN" ]; then 
-            echo "::error::FONT_AWESOME_TOKEN no está configurado"
+          if [ -z "$FONTAWESOME_TOKEN" ]; then 
+            echo "::error::FONTAWESOME_TOKEN no está configurado"
             exit 1
           fi
           echo "✅ Variables de entorno configuradas correctamente"
@@ -87,7 +92,7 @@ jobs:
         run: |
           echo "//npm.pkg.github.com/:_authToken=${NPM_GITHUB_TOKEN}" > .npmrc
           echo "@JoanRojasMejia:registry=https://npm.pkg.github.com/" >> .npmrc
-          echo "//npm.fontawesome.com/:_authToken=${FONT_AWESOME_TOKEN}" >> .npmrc
+          echo "//npm.fontawesome.com/:_authToken=${FONTAWESOME_TOKEN}" >> .npmrc
           echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc
 
       - name: Publish packages with Lerna
@@ -148,7 +153,7 @@ jobs:
       
     env:
       NPM_GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_TOKEN }}
-      FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+      FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -174,7 +179,7 @@ jobs:
           docker build \
             -f Dockerfile.prod \
             --build-arg NPM_GITHUB_TOKEN=$NPM_GITHUB_TOKEN \
-            --build-arg FONTAWESOME_TOKEN=$FONT_AWESOME_TOKEN \
+            --build-arg FONTAWESOME_TOKEN=$FONTAWESOME_TOKEN \
             -t ghcr.io/$owner/$repo_name:prod .
           
           # Push de la imagen
