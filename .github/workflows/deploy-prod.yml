@@ -130,7 +130,6 @@ jobs:
         if: steps.version.outputs.no_changes == 'false'
         run: |
           echo "Verificación opcional de resultados..."
-          # Aquí puedes añadir comprobaciones personalizadas si lo deseas
           echo "✅ Verificación omitida (se asume éxito)"
 
       - name: Notification on success
@@ -169,18 +168,15 @@ jobs:
           REPO_NAME: ${{ github.event.repository.name }}
           OWNER_NAME: ${{ github.repository_owner }}
         run: |
-          # Convertir nombres a lowercase para compatibilidad con Docker
           owner=$(echo "$OWNER_NAME" | tr '[:upper:]' '[:lower:]')
           repo_name=$(echo "$REPO_NAME" | tr '[:upper:]' '[:lower:]')
-          
-          # Construir y etiquetar imagen con tag 'prod'
+
           docker build \
             -f Dockerfile.prod \
             --build-arg NPM_GITHUB_TOKEN=$NPM_GITHUB_TOKEN \
             --build-arg FONTAWESOME_TOKEN=$FONTAWESOME_TOKEN \
             -t ghcr.io/$owner/$repo_name:prod .
-          
-          # Push de la imagen
+
           docker push ghcr.io/$owner/$repo_name:prod
 
   deploy-to-render:

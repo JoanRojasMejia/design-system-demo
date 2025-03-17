@@ -51,8 +51,6 @@
               </slot>
             </div>
 
-            <span>hola5</span>
-
             <div
               ref="selectionRef"
               :class="[
