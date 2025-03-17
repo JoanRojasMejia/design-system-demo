@@ -420,7 +420,7 @@ disabled?: boolean
       { value: '3', title: 'Opción 3' },
       { value: '4', title: 'Opción 4' },
       { value: '5', title: 'Opción 5' },
-      { value: '6', title: 'Opción 9' }
+      { value: '6', title: 'Opción 6' }
     ]
   }
 }
