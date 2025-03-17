@@ -10,7 +10,6 @@ dist
 storybook-static/
 
 yarn.lock
-.yarnrc.yml
 .npmrc
 lerna-debug.log
 
