@@ -51,7 +51,7 @@
               </slot>
             </div>
 
-            <span>hola</span>
+            <span>hola2</span>
 
             <div
               ref="selectionRef"
