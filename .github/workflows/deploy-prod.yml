@@ -23,6 +23,7 @@ jobs:
     env:
       NPM_GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_TOKEN }}
       FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
+      TOKEN_WRITE_WITH_LERNA: ${{ secrets.TOKEN_WRITE_WITH_LERNA }}
 
     steps:
       - name: Checkout repository
@@ -90,7 +91,7 @@ jobs:
 
       - name: Setup authentication for publishing
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${NPM_GITHUB_TOKEN}" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${TOKEN_WRITE_WITH_LERNA}" > .npmrc
           echo "@JoanRojasMejia:registry=https://npm.pkg.github.com/" >> .npmrc
           echo "//npm.fontawesome.com/:_authToken=${FONTAWESOME_TOKEN}" >> .npmrc
           echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc
