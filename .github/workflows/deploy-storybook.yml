@@ -20,20 +20,24 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.PASSWORD_GITHUB_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
         env:
           NPM_GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_TOKEN }}
           FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          OWNER_NAME: ${{ github.repository_owner }}
         run: |
+          owner=$(echo "$OWNER_NAME" | tr '[:upper:]' '[:lower:]')
+          repo_name=$(echo "$REPO_NAME" | tr '[:upper:]' '[:lower:]')
           docker build \
             -f Dockerfile.prod \
             --build-arg NPM_GITHUB_TOKEN=$NPM_GITHUB_TOKEN \
             --build-arg FONTAWESOME_TOKEN=$FONTAWESOME_TOKEN \
-            -t ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:develop .
+            -t ghcr.io/$owner/$repo_name:develop .
           
-          docker push ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:develop
+          docker push ghcr.io/$owner/$repo_name:develop
 
   deploy-to-render:
     needs: build-and-push-image
