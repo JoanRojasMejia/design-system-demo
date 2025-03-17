@@ -1,0 +1,190 @@
+name: Publish Packages
+
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      packages: write
+    env:
+      NPM_GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_TOKEN }}
+      FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'yarn'
+          cache-dependency-path: '**/yarn.lock'
+
+      - name: Verify environment variables
+        run: |
+          if [ -z "$NPM_GITHUB_TOKEN" ]; then 
+            echo "::error::NPM_GITHUB_TOKEN no está configurado"
+            exit 1
+          fi
+          if [ -z "$FONT_AWESOME_TOKEN" ]; then 
+            echo "::error::FONT_AWESOME_TOKEN no está configurado"
+            exit 1
+          fi
+          echo "✅ Variables de entorno configuradas correctamente"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Verify Yarn configuration
+        run: |
+          echo "Verificando configuración de Yarn"
+          yarn config list --verbose | grep -v "npmAuthToken"
+          echo "✅ Configuración de Yarn verificada"
+
+      - name: Check existing tags
+        id: check-tags
+        run: |
+          git fetch --tags
+          echo "LOCAL_TAGS=$(git tag --list | jq -R -s -c 'split("\n")')" >> $GITHUB_OUTPUT
+          echo "✅ Tags existentes verificados"
+
+      - name: Version packages with Lerna
+        id: version
+        env:
+          GIT_AUTHOR_NAME: GitHub Actions
+          GIT_AUTHOR_EMAIL: actions@github.com
+          GIT_COMMITTER_NAME: GitHub Actions
+          GIT_COMMITTER_EMAIL: actions@github.com
+        run: |
+          echo "Ejecutando versionado con Lerna..."
+          OUTPUT=$(yarn lerna version --conventional-commits --yes --no-push --tag-version-prefix="" --create-release=github --message "chore(release): publish %s [skip ci]" 2>&1) || true
+          echo "$OUTPUT"
+          if echo "$OUTPUT" | grep -q "No changed packages to publish"; then
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+            echo "ℹ️ No hay cambios para publicar"
+          else
+            echo "no_changes=false" >> $GITHUB_OUTPUT
+            echo "✅ Versionado completado, hay cambios para publicar"
+          fi
+
+      - name: Setup authentication for publishing
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${NPM_GITHUB_TOKEN}" > .npmrc
+          echo "@JoanRojasMejia:registry=https://npm.pkg.github.com/" >> .npmrc
+          echo "//npm.fontawesome.com/:_authToken=${FONT_AWESOME_TOKEN}" >> .npmrc
+          echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc
+
+      - name: Publish packages with Lerna
+        if: steps.version.outputs.no_changes == 'false'
+        id: publish
+        run: |
+          echo "Publicando paquetes con Lerna..."
+          npx lerna publish from-package --yes
+          echo "✅ Paquetes publicados exitosamente"
+
+      - name: Cleanup temporary files
+        if: always()
+        run: rm -f .npmrc
+      - name: Push tags with conflict check
+        run: |
+          echo "Empujando tags a GitHub..."
+          NEW_TAGS=0
+          git tag --list | while read tag; do
+            if ! grep -q "$tag" <<< "${{ steps.check-tags.outputs.LOCAL_TAGS }}"; then
+              echo "Pushing new tag: $tag"
+              git push origin "$tag"
+              NEW_TAGS=$((NEW_TAGS+1))
+            else
+              echo "Skipping existing tag: $tag"
+            fi
+          done
+          if [ $NEW_TAGS -gt 0 ]; then
+            echo "✅ $NEW_TAGS nuevos tags fueron enviados a GitHub"
+          else
+            echo "ℹ️ No se encontraron nuevos tags para enviar"
+          fi
+
+      - name: Verify publish results
+        if: steps.version.outputs.no_changes == 'false'
+        run: |
+          echo "Verificando resultados de la publicación..."
+          if [ "${{ steps.publish.outcome }}" == "success" ]; then
+            echo "✅ Publicación completada exitosamente"
+          else
+            echo "❌ Hubo un problema con la publicación"
+            exit 1
+          fi
+
+      - name: Notification on success
+        if: success()
+        run: echo "🎉 Workflow completado exitosamente - Los paquetes han sido versionados y publicados"
+
+      - name: Notification on failure
+        if: failure()
+        run: echo "❌ El workflow ha fallado - Revisa los logs para más detalles"
+  docker-build-push:
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      packages: write
+      
+    env:
+      NPM_GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_TOKEN }}
+      FONT_AWESOME_TOKEN: ${{ secrets.FONT_AWESOME_TOKEN }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login al GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Construir y publicar imagen Docker de producción
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
+          OWNER_NAME: ${{ github.repository_owner }}
+        run: |
+          # Convertir nombres a lowercase para compatibilidad con Docker
+          owner=$(echo "$OWNER_NAME" | tr '[:upper:]' '[:lower:]')
+          repo_name=$(echo "$REPO_NAME" | tr '[:upper:]' '[:lower:]')
+          
+          # Construir y etiquetar imagen con tag 'prod'
+          docker build \
+            -f Dockerfile.prod \
+            --build-arg NPM_GITHUB_TOKEN=$NPM_GITHUB_TOKEN \
+            --build-arg FONTAWESOME_TOKEN=$FONT_AWESOME_TOKEN \
+            -t ghcr.io/$owner/$repo_name:prod .
+          
+          # Push de la imagen
+          docker push ghcr.io/$owner/$repo_name:prod
+
+  deploy-to-render:
+    needs: docker-build-push
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Desencadenar despliegue en Render
+        env:
+          DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          # Llamada simple al webhook de Render
+          curl -X POST "$DEPLOY_HOOK"
