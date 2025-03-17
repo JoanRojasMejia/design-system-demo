@@ -9,9 +9,12 @@ dist
 # Build output
 storybook-static/
 
+yarn.lock
 .yarnrc.yml
 .npmrc
 lerna-debug.log
+
+remote_versions.txt
 
 .env
 .env.local

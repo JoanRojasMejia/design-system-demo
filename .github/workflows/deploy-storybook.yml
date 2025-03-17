@@ -1,0 +1,46 @@
+name: Build and Deploy Storybook to Render
+
+on:
+  pull_request:
+    branches: [develop]
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.PASSWORD_GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        env:
+          NPM_GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_TOKEN }}
+          FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
+        run: |
+          docker build \
+            -f Dockerfile.prod \
+            --build-arg NPM_GITHUB_TOKEN=$NPM_GITHUB_TOKEN \
+            --build-arg FONTAWESOME_TOKEN=$FONTAWESOME_TOKEN \
+            -t ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:develop .
+          
+          docker push ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:develop
+
+  deploy-to-render:
+    needs: build-and-push-image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render Deployment via Webhook
+        env:
+          DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          curl -X POST "$DEPLOY_HOOK"

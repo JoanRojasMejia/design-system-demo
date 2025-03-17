@@ -34,8 +34,6 @@ RUN yarn install
 # Copiar todo el proyecto
 COPY . .
 
-# CMD ["sleep", "infinity"]
-
 # Construir Storybook
 RUN yarn build-storybook
 
