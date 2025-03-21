@@ -5,6 +5,10 @@
 @use "element-plus/theme-chalk/src/mixins/var" as *;
 @use "element-plus/theme-chalk/src/common/var" as *;
 
+.prueba {
+  display: flex;
+}
+
 @include b("inline") {
   $transition-bezier: cubic-bezier(0.42, 0, 0.58, 1);
 
