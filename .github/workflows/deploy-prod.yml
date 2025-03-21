@@ -55,7 +55,7 @@ jobs:
           echo "✅ Variables de entorno configuradas correctamente"
 
       - name: Install dependencies
-        run: yarn install --mode=update-lockfile
+        run: yarn install
 
       - name: Verify Yarn configuration
         run: |
@@ -79,7 +79,7 @@ jobs:
           GIT_COMMITTER_EMAIL: actions@github.com
         run: |
           echo "Ejecutando versionado con Lerna..."
-          OUTPUT=$(yarn lerna version --conventional-commits --yes --no-push --tag-version-prefix="" --create-release=github --message "chore(release): publish %s [skip ci]" 2>&1) || true
+          OUTPUT=$(yarn lerna version --conventional-commits --yes --no-push --tag-version-prefix="" --create-release=github --message "chore(release): publish %s [skip ci]" 2>&1)
           echo "$OUTPUT"
           if echo "$OUTPUT" | grep -q "No changed packages to publish"; then
             echo "no_changes=true" >> $GITHUB_OUTPUT
@@ -96,49 +96,49 @@ jobs:
           echo "//npm.fontawesome.com/:_authToken=${FONTAWESOME_TOKEN}" >> .npmrc
           echo "@fortawesome:registry=https://npm.fontawesome.com/" >> .npmrc
 
-      - name: Publish packages with Lerna
-        if: steps.version.outputs.no_changes == 'false'
-        id: publish
-        run: |
-          echo "Publicando paquetes con Lerna..."
-          npx lerna publish from-package --yes || echo "⚠️ Lerna falló, pero continuando..."
-          echo "✅ Paquetes publicados exitosamente (a pesar de posibles errores)"
+      # - name: Publish packages with Lerna
+      #   if: steps.version.outputs.no_changes == 'false'
+      #   id: publish
+      #   run: |
+      #     echo "Publicando paquetes con Lerna..."
+      #     npx lerna publish from-package --yes || echo "⚠️ Lerna falló, pero continuando..."
+      #     echo "✅ Paquetes publicados exitosamente (a pesar de posibles errores)"
 
-      - name: Cleanup temporary files
-        if: always()
-        run: rm -f .npmrc
-      - name: Push tags with conflict check
-        run: |
-          echo "Empujando tags a GitHub..."
-          NEW_TAGS=0
-          git tag --list | while read tag; do
-            if ! grep -q "$tag" <<< "${{ steps.check-tags.outputs.LOCAL_TAGS }}"; then
-              echo "Pushing new tag: $tag"
-              git push origin "$tag"
-              NEW_TAGS=$((NEW_TAGS+1))
-            else
-              echo "Skipping existing tag: $tag"
-            fi
-          done
-          if [ $NEW_TAGS -gt 0 ]; then
-            echo "✅ $NEW_TAGS nuevos tags fueron enviados a GitHub"
-          else
-            echo "ℹ️ No se encontraron nuevos tags para enviar"
-          fi
+      # - name: Cleanup temporary files
+      #   if: always()
+      #   run: rm -f .npmrc
+      # - name: Push tags with conflict check
+      #   run: |
+      #     echo "Empujando tags a GitHub..."
+      #     NEW_TAGS=0
+      #     git tag --list | while read tag; do
+      #       if ! grep -q "$tag" <<< "${{ steps.check-tags.outputs.LOCAL_TAGS }}"; then
+      #         echo "Pushing new tag: $tag"
+      #         git push origin "$tag"
+      #         NEW_TAGS=$((NEW_TAGS+1))
+      #       else
+      #         echo "Skipping existing tag: $tag"
+      #       fi
+      #     done
+      #     if [ $NEW_TAGS -gt 0 ]; then
+      #       echo "✅ $NEW_TAGS nuevos tags fueron enviados a GitHub"
+      #     else
+      #       echo "ℹ️ No se encontraron nuevos tags para enviar"
+      #     fi
 
-      - name: Verify publish results
-        if: steps.version.outputs.no_changes == 'false'
-        run: |
-          echo "Verificación opcional de resultados..."
-          echo "✅ Verificación omitida (se asume éxito)"
+      # - name: Verify publish results
+      #   if: steps.version.outputs.no_changes == 'false'
+      #   run: |
+      #     echo "Verificación opcional de resultados..."
+      #     echo "✅ Verificación omitida (se asume éxito)"
 
-      - name: Notification on success
-        if: success()
-        run: echo "🎉 Workflow completado exitosamente - Los paquetes han sido versionados y publicados"
+      # - name: Notification on success
+      #   if: success()
+      #   run: echo "🎉 Workflow completado exitosamente - Los paquetes han sido versionados y publicados"
 
-      - name: Notification on failure
-        if: failure()
-        run: echo "❌ El workflow ha fallado - Revisa los logs para más detalles"
+      # - name: Notification on failure
+      #   if: failure()
+      #   run: echo "❌ El workflow ha fallado - Revisa los logs para más detalles"
 
   docker-build-push:
     needs: publish
