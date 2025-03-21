@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/JoanRojasMejia/design-system-demo/compare/@JoanRojasMejia/b2b-ui-inline@1.1.0...@JoanRojasMejia/b2b-ui-inline@1.1.1) (2025-03-21)
+
+
+### Bug Fixes
+
+* cambios ([7a3b66d](https://github.com/JoanRojasMejia/design-system-demo/commit/7a3b66d8a6a55f8f640159694d3c0a2c8f88bfad))
+
+
+
+
+
 # [1.1.0](https://github.com/JoanRojasMejia/design-system-demo/compare/@JoanRojasMejia/b2b-ui-inline@1.0.6...@JoanRojasMejia/b2b-ui-inline@1.1.0) (2025-03-21)
 
 
