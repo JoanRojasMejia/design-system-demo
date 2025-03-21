@@ -1,7 +1,7 @@
 {
   "name": "@JoanRojasMejia/b2b-ui-overlay",
   "author": "Joan Rojas Mejia",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "An overlay component for B2B",
   "license": "MIT",
   "exports": {

@@ -1,7 +1,7 @@
 {
   "name": "@JoanRojasMejia/b2b-ui-form",
   "author": "Joan Rojas Mejia",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "license": "MIT",
   "exports": {
     ".": "./index.ts",
