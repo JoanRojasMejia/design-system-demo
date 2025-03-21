@@ -78,7 +78,7 @@ jobs:
           yarn lerna changed -a
 
           # OUTPUT=$(yarn lerna version --conventional-commits --yes --no-push --tag-version-prefix="" --create-release=github --message "chore(release): publish %s [skip ci]" 2>&1)
-          OUTPUT=$(yarn lerna version --conventional-commits --yes --tag-version-prefix="" --loglevel=debug 2>&1) || true
+          OUTPUT=$(yarn lerna version --conventional-commits --yes --tag-version-prefix="" --no-granular-pathspec --loglevel=debug 2>&1) || true
           echo "$OUTPUT"
           if echo "$OUTPUT" | grep -q "No changed packages to publish"; then
             echo "no_changes=true" >> $GITHUB_OUTPUT
